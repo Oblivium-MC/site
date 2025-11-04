@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.minecraft-font {
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.minecraft-border {
+  border-image-slice: 4;
+  border-image-width: 4px;
+  border-image-outset: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: rotateX(30deg) rotateY(45deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(30deg) rotateY(45deg) translateY(-20px);
+  }
+}
+
+@keyframes cubeFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(-5deg);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.grass-texture {
+  background: linear-gradient(to bottom, #7cbd6b 0%, #7cbd6b 40%, #8b6f47 40%, #8b6f47 100%);
+  background-size: 16px 16px;
+  position: relative;
+}
+
+.grass-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 5px),
+    repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 5px);
+}
+
+.stone-texture {
+  background-color: #7d7d7d;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(0,0,0,0.1) 8px, rgba(0,0,0,0.1) 10px),
+    repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(0,0,0,0.15) 8px, rgba(0,0,0,0.15) 10px);
+}
+
+.dirt-texture {
+  background-color: #8b6f47;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(0,0,0,0.2) 6px, rgba(0,0,0,0.2) 7px),
+    repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(0,0,0,0.15) 6px, rgba(0,0,0,0.15) 7px);
+}
+
+.wood-texture {
+  background: linear-gradient(90deg, #9c7851 0%, #8b6846 50%, #9c7851 100%);
+  background-size: 32px 100%;
+  position: relative;
+}
+
+.wood-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 16px, rgba(0,0,0,0.1) 16px, rgba(0,0,0,0.1) 18px);
+}
+
+.obsidian-texture {
+  background-color: #1a1a2e;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(138, 43, 226, 0.1) 12px, rgba(138, 43, 226, 0.1) 14px),
+    repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(138, 43, 226, 0.15) 12px, rgba(138, 43, 226, 0.15) 14px);
+}
+
+.minecraft-shadow {
+  box-shadow:
+    4px 4px 0px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 0px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 0px rgba(255, 255, 255, 0.1);
+}
+
+.minecraft-button {
+  position: relative;
+  background: linear-gradient(to bottom, #7d7d7d 0%, #6b6b6b 50%, #5a5a5a 100%);
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.1s ease;
+}
+
+.minecraft-button:hover {
+  background: linear-gradient(to bottom, #8d8d8d 0%, #7b7b7b 50%, #6a6a6a 100%);
+}
+
+.minecraft-button:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
